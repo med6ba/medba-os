@@ -2,6 +2,9 @@
 # Medba OS - Fedora GNOME
 # =========================
 
+url --mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=fedora-43&arch=$basearch
+repo --name=updates --mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=updates-released-43&arch=$basearch
+
 lang en_US.UTF-8
 keyboard us
 timezone UTC --utc
@@ -11,22 +14,18 @@ network --bootproto=dhcp --device=link --activate
 selinux --enforcing
 firewall --enabled
 
-autopart --type=lvm
 clearpart --all --initlabel
+part / --fstype="xfs" --size=12000
+part swap --fstype="swap" --size=2048
 
 reboot
 
 %packages
 @workstation-product-environment
-
-# Browsers
-brave-browser
+dracut-live
 
 # Media
 vlc
-
-# Communication
-discord
 
 # Utilities
 gnome-calculator
@@ -47,7 +46,6 @@ gnome-connections
 gnome-boxes
 gnome-weather
 gnome-maps
-fedora-media-writer
 cheese
 
 # Packaging

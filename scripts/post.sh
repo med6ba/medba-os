@@ -67,3 +67,19 @@ Name=Medba OS
 Logo=
 Website=https://medba-os.vercel.app
 EOF
+
+# =========================
+# Third-party apps
+# =========================
+
+# Brave Browser (RPM repo)
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+dnf install -y brave-browser
+
+# Discord (Flatpak)
+flatpak install -y flathub com.discordapp.Discord
+
+# Fedora Media Writer (Flatpak)
+flatpak install -y flathub org.fedoraproject.MediaWriter
