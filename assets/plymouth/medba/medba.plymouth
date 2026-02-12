@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Medba OS
+Description=Medba OS Boot Splash
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/medba
+ScriptFile=/usr/share/plymouth/themes/medba/medba.script

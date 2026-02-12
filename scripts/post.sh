@@ -83,3 +83,13 @@ flatpak install -y flathub com.discordapp.Discord
 
 # Fedora Media Writer (Flatpak)
 flatpak install -y flathub org.fedoraproject.MediaWriter
+
+# =========================
+# Plymouth Boot Splash - Medba OS
+# =========================
+dnf install -y plymouth
+
+mkdir -p /usr/share/plymouth/themes/medba
+cp -a /run/install/repo/assets/plymouth/medba/* /usr/share/plymouth/themes/medba/
+
+plymouth-set-default-theme -R medba
