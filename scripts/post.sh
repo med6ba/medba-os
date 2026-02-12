@@ -52,3 +52,18 @@ cp /run/install/repo/assets/wallpaper.png /usr/share/backgrounds/medba/wallpaper
 # Set wallpaper for GNOME (system default)
 gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/medba/wallpaper.png"
 gsettings set org.gnome.desktop.background picture-uri-dark "file:///usr/share/backgrounds/medba/wallpaper.png"
+
+# =========================
+# Remove GNOME / Fedora support banner
+# =========================
+
+BRANDING_DIR="/usr/share/gnome-control-center/branding"
+
+mkdir -p $BRANDING_DIR
+
+cat > $BRANDING_DIR/vendor.conf << 'EOF'
+[Vendor]
+Name=Medba OS
+Logo=
+Website=https://medba-os.vercel.app
+EOF
