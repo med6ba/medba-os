@@ -3,4 +3,4 @@
 A lightweight Fedora GNOME based Linux distribution.
 Focused on simplicity, privacy, and everyday usability.
 
-Status: In development
+Status: Under construction
