@@ -1,34 +1,24 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
-# Firewall
-systemctl enable --now firewalld
+# Log everything (very helpful if something fails)
+exec > >(tee -a /root/medba-post.log) 2>&1
 
-# Automatic updates
-systemctl enable --now dnf-automatic.timer
+echo "[Medba OS] Post-install started..."
 
-# Dark mode
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+# -------------------------
+# Services
+# -------------------------
+echo "[Medba OS] Enabling firewall..."
+systemctl enable --now firewalld || true
 
-# Accent color: gray
-gsettings set org.gnome.desktop.interface accent-color 'slate'
+echo "[Medba OS] Enabling automatic updates..."
+systemctl enable --now dnf-automatic.timer || true
 
-# Window buttons: minimize + maximize
-gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
-
-# Privacy defaults
-gsettings set org.gnome.system.location enabled false
-gsettings set org.gnome.desktop.privacy send-software-usage-stats false
-gsettings set org.gnome.desktop.privacy remember-recent-files false
-
-# Flatpak + Flathub
-dnf install -y flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-# =========================
+# -------------------------
 # Set Medba OS identity
-# =========================
-
+# -------------------------
+echo "[Medba OS] Setting OS identity..."
 cat > /etc/os-release << 'EOF'
 NAME="Medba OS"
 ID=medba
@@ -42,54 +32,100 @@ EOF
 
 echo "Medba OS (Based on Fedora GNOME)" > /etc/fedora-release
 
-# =========================
+# Optional (nice touch)
+echo "Medba OS" > /etc/issue
+echo "Medba OS" > /etc/issue.net
+
+# -------------------------
 # Default wallpaper
-# =========================
-
+# -------------------------
+echo "[Medba OS] Installing default wallpaper..."
 mkdir -p /usr/share/backgrounds/medba
-cp /run/install/repo/assets/wallpaper.png /usr/share/backgrounds/medba/wallpaper.png
 
-# Set wallpaper for GNOME (system default)
-gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/medba/wallpaper.png"
-gsettings set org.gnome.desktop.background picture-uri-dark "file:///usr/share/backgrounds/medba/wallpaper.png"
+if [ -f /run/install/repo/assets/wallpaper.png ]; then
+  cp /run/install/repo/assets/wallpaper.png /usr/share/backgrounds/medba/wallpaper.png
+else
+  echo "[Medba OS] WARNING: assets/wallpaper.png not found in repo. Skipping wallpaper."
+fi
 
-# =========================
-# Remove GNOME / Fedora support banner
-# =========================
+# -------------------------
+# GNOME defaults (system-wide) via dconf
+# -------------------------
+echo "[Medba OS] Writing GNOME defaults via dconf..."
+mkdir -p /etc/dconf/db/local.d
 
+cat > /etc/dconf/db/local.d/00-medba << 'EOF'
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+accent-color='slate'
+
+[org/gnome/desktop/wm/preferences]
+button-layout='appmenu:minimize,maximize,close'
+
+[org/gnome/system/location]
+enabled=false
+
+[org/gnome/desktop/privacy]
+send-software-usage-stats=false
+remember-recent-files=false
+
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/medba/wallpaper.png'
+picture-uri-dark='file:///usr/share/backgrounds/medba/wallpaper.png'
+EOF
+
+dconf update || true
+
+# -------------------------
+# Remove GNOME / Fedora support banner (vendor branding)
+# -------------------------
+echo "[Medba OS] Setting GNOME Control Center vendor branding..."
 BRANDING_DIR="/usr/share/gnome-control-center/branding"
+mkdir -p "$BRANDING_DIR"
 
-mkdir -p $BRANDING_DIR
-
-cat > $BRANDING_DIR/vendor.conf << 'EOF'
+cat > "$BRANDING_DIR/vendor.conf" << 'EOF'
 [Vendor]
 Name=Medba OS
 Logo=
 Website=https://medba-os.vercel.app
 EOF
 
-# =========================
+# -------------------------
+# Flatpak + Flathub
+# -------------------------
+echo "[Medba OS] Setting up Flatpak + Flathub..."
+dnf install -y flatpak || true
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || true
+flatpak remotes || true
+
+# -------------------------
 # Third-party apps
-# =========================
+# -------------------------
+echo "[Medba OS] Installing Brave (RPM repo)..."
+dnf install -y dnf-plugins-core || true
+dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo || true
+rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc || true
+dnf install -y brave-browser || true
 
-# Brave Browser (RPM repo)
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-dnf install -y brave-browser
+echo "[Medba OS] Installing Discord (Flatpak)..."
+flatpak install -y --noninteractive flathub com.discordapp.Discord || true
 
-# Discord (Flatpak)
-flatpak install -y flathub com.discordapp.Discord
+echo "[Medba OS] Installing Fedora Media Writer (Flatpak)..."
+flatpak install -y --noninteractive flathub org.fedoraproject.MediaWriter || true
 
-# Fedora Media Writer (Flatpak)
-flatpak install -y flathub org.fedoraproject.MediaWriter
-
-# =========================
+# -------------------------
 # Plymouth Boot Splash - Medba OS
-# =========================
-dnf install -y plymouth
+# -------------------------
+echo "[Medba OS] Installing Plymouth theme..."
+dnf install -y plymouth || true
 
-mkdir -p /usr/share/plymouth/themes/medba
-cp -a /run/install/repo/assets/plymouth/medba/* /usr/share/plymouth/themes/medba/
+if [ -d /run/install/repo/assets/plymouth/medba ]; then
+  mkdir -p /usr/share/plymouth/themes/medba
+  cp -a /run/install/repo/assets/plymouth/medba/* /usr/share/plymouth/themes/medba/
+  plymouth-set-default-theme -R medba || true
+else
+  echo "[Medba OS] WARNING: assets/plymouth/medba/ not found. Skipping Plymouth theme."
+fi
 
-plymouth-set-default-theme -R medba
+echo "[Medba OS] Post-install finished."

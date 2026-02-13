@@ -1,0 +1,113 @@
+14:57:11,046 INF core.configuration.profile: Loading information about profiles from /etc/anaconda/profile.d.
+14:57:11,046 INF core.configuration.profile: Found the 'almalinux' profile at /etc/anaconda/profile.d/almalinux.conf.
+14:57:11,047 INF core.configuration.profile: Found the 'centos' profile at /etc/anaconda/profile.d/centos.conf.
+14:57:11,047 INF core.configuration.profile: Found the 'circle' profile at /etc/anaconda/profile.d/circle.conf.
+14:57:11,047 INF core.configuration.profile: Found the 'fedora-designsuite' profile at /etc/anaconda/profile.d/fedora-designsuite.conf.
+14:57:11,048 INF core.configuration.profile: Found the 'fedora-eln' profile at /etc/anaconda/profile.d/fedora-eln.conf.
+14:57:11,048 INF core.configuration.profile: Found the 'fedora-iot' profile at /etc/anaconda/profile.d/fedora-iot.conf.
+14:57:11,048 INF core.configuration.profile: Found the 'fedora-kde' profile at /etc/anaconda/profile.d/fedora-kde.conf.
+14:57:11,049 INF core.configuration.profile: Found the 'fedora-kinoite' profile at /etc/anaconda/profile.d/fedora-kinoite.conf.
+14:57:11,049 INF core.configuration.profile: Found the 'fedora-sericea' profile at /etc/anaconda/profile.d/fedora-sericea.conf.
+14:57:11,049 INF core.configuration.profile: Found the 'fedora-server' profile at /etc/anaconda/profile.d/fedora-server.conf.
+14:57:11,049 INF core.configuration.profile: Found the 'fedora-silverblue' profile at /etc/anaconda/profile.d/fedora-silverblue.conf.
+14:57:11,050 INF core.configuration.profile: Found the 'fedora-workstation' profile at /etc/anaconda/profile.d/fedora-workstation.conf.
+14:57:11,050 INF core.configuration.profile: Found the 'fedora' profile at /etc/anaconda/profile.d/fedora.conf.
+14:57:11,050 INF core.configuration.profile: Found the 'ovirt' profile at /etc/anaconda/profile.d/ovirt.conf.
+14:57:11,051 INF core.configuration.profile: Found the 'rhel' profile at /etc/anaconda/profile.d/rhel.conf.
+14:57:11,051 INF core.configuration.profile: Found the 'rhvh' profile at /etc/anaconda/profile.d/rhvh.conf.
+14:57:11,052 INF core.configuration.profile: Found the 'rocky' profile at /etc/anaconda/profile.d/rocky.conf.
+14:57:11,052 INF core.configuration.profile: Found the 'scientific-linux' profile at /etc/anaconda/profile.d/scientific-linux.conf.
+14:57:11,052 INF core.configuration.profile: Found the 'virtuozzo-linux' profile at /etc/anaconda/profile.d/virtuozzo-linux.conf.
+14:57:11,052 DBG core.configuration.profile: Detecting a profile for ID=fedora, VARIANT_ID=workstation.
+14:57:11,052 INF core.configuration.profile: The 'fedora-workstation' profile is detected.
+14:57:11,052 INF core.configuration.anaconda: Load the 'fedora-workstation' profile configuration.
+14:57:11,055 INF main: /usr/sbin/anaconda 43.44-3.fc43
+14:57:11,055 INF core.util: Reporting the IPMI event: 7
+14:57:11,055 DBG main: Dir and image installations can run only in the non-interactive text mode.
+14:57:11,055 INF stdout: Enforcing the non-interactive text mode for dir and image installations.
+14:57:11,107 INF startup_utils: check_memory(): total:15763, needed:320
+14:57:11,107 DBG startup_utils: Don't set up proxy variables.
+14:57:11,108 INF main: anaconda called with cmdline = ['/usr/sbin/anaconda', '--kickstart', '/home/medba/Desktop/medba-os/kickstarts/medba.ks', '--cmdline', '--dirinstall', '--remotelog', '127.0.0.1:33849']
+14:57:11,108 INF main: Default encoding = utf-8 
+14:57:11,108 INF misc: Configuration loaded from: ['/etc/anaconda/anaconda.conf', '/etc/anaconda/profile.d/fedora.conf', '/etc/anaconda/profile.d/fedora-workstation.conf', '/etc/anaconda/conf.d/00-do-nothing.conf', '/etc/anaconda/conf.d/01-still-do-nothing.conf']
+14:57:11,108 INF misc: Writing the runtime configuration to: /run/anaconda/anaconda.conf
+14:57:11,119 INF core.dbus: Connecting to the Anaconda bus at unix:path=/tmp/dbus-wfoGuFfWJY,guid=0013e6afe2760deecee07bf3698f2db7.
+14:57:13,601 INF main: Found a kickstart file: /home/medba/Desktop/medba-os/kickstarts/medba.ks
+14:57:13,613 INF startup_utils: Parsing kickstart: /home/medba/Desktop/medba-os/kickstarts/medba.ks
+14:57:14,505 WRN kickstart: Command url will be parsed in DBus module.
+14:57:14,505 WRN kickstart: Command repo will be parsed in DBus module.
+14:57:14,505 WRN kickstart: Command lang will be parsed in DBus module.
+14:57:14,505 WRN kickstart: Command keyboard will be parsed in DBus module.
+14:57:14,505 WRN kickstart: Command timezone will be parsed in DBus module.
+14:57:14,505 WRN kickstart: Command network will be parsed in DBus module.
+14:57:14,505 WRN kickstart: Command selinux will be parsed in DBus module.
+14:57:14,505 WRN kickstart: Command firewall will be parsed in DBus module.
+14:57:14,505 WRN kickstart: Command clearpart will be parsed in DBus module.
+14:57:14,505 WRN kickstart: Command part will be parsed in DBus module.
+14:57:14,506 WRN kickstart: Command part will be parsed in DBus module.
+14:57:14,506 WRN kickstart: Command reboot will be parsed in DBus module.
+14:57:14,542 DBG payload.dnf.payload: The DNF source is already set.
+14:57:14,551 INF modules.payloads.payload.dnf.repositories: Skipping driver disk repository generation.
+14:57:14,563 DBG localization: setting locale to: en_US.UTF-8
+14:57:14,572 INF core.threads: Running Thread: AnaWaitForConnectingNMThread (140496728966848)
+14:57:14,572 DBG anaconda: setting display mode to TUI
+14:57:14,572 DBG anaconda: working in noninteractive mode
+14:57:14,572 INF anaconda: Display mode is set to 'noninteractive text mode'.
+14:57:14,572 DBG ui.lib.addons: Loading spokes into module path for addon com_redhat_kdump
+14:57:14,575 DBG network: NetworkManager client not available (system does not provide it).
+14:57:14,575 INF network: got 0 NTP servers from DHCP
+14:57:14,575 DBG startup_utils: no default systemd target set & in text/remote desktop mode - setting multi-user.target.
+14:57:14,577 INF core.threads: Thread Done: AnaWaitForConnectingNMThread (140496728966848)
+14:57:14,614 DBG core.storage: LABEL=OEMDRV matches [] for devicetree=None and disks_only=True
+14:57:14,614 DBG startup_utils: Skip the clock initialization.
+14:57:14,620 DBG payload.manager: Restarting payload thread
+14:57:14,620 INF core.threads: Running Thread: AnaPayloadRestartThread (140496728966848)
+14:57:14,620 INF startup_utils: Geolocation is disabled for image or directory installation.
+14:57:14,620 DBG startup_utils: Skip the time synchronization.
+14:57:14,621 INF core.threads: Running Thread: AnaPayloadThread (140496720574144)
+14:57:14,621 INF core.threads: Thread Done: AnaPayloadRestartThread (140496728966848)
+14:57:14,622 DBG payload.dnf.payload: Tearing down sources
+14:57:14,626 DBG simpleline: GLib event loop is used!
+14:57:14,627 DBG payload.dnf.payload: Setting up sources
+14:57:14,652 INF core.hw: Skipping detection of SMT.
+14:57:14,653 INF ui.common: Spoke NetworkSpoke will not be displayed because it is hidden by the Anaconda configuration file.
+14:57:14,654 INF ui.common: Spoke PasswordSpoke will not be displayed because it is hidden by the Anaconda configuration file.
+14:57:14,654 INF ui.common: Spoke UserSpoke will not be displayed because it is hidden by the Anaconda configuration file.
+14:57:14,654 INF lifecycle: Adding controller: SummaryHub
+14:57:14,693 INF lifecycle: Module initialized: LangSpoke
+14:57:14,697 INF lifecycle: Module initialized: TimeSpoke
+14:57:14,697 INF core.threads: Running Thread: AnaSourceWatcher (140496728966848)
+14:57:14,698 INF core.threads: Running Thread: AnaSoftwareWatcher (140496567531200)
+14:57:14,700 INF lifecycle: Initialization of all modules (4) has been started.
+14:57:14,701 WRN misc: /usr/lib64/python3.14/site-packages/gi/events.py:718: DeprecationWarning: 'asyncio.AbstractEventLoopPolicy' is deprecated and slated for removal in Python 3.16
+  class GLibEventLoopPolicy(asyncio.AbstractEventLoopPolicy):
+
+14:57:14,702 WRN misc: /usr/lib64/python3.14/site-packages/gi/_ossighelper.py:266: DeprecationWarning: 'asyncio.get_event_loop_policy' is deprecated and slated for removal in Python 3.16
+  policy = asyncio.get_event_loop_policy()
+
+14:57:26,598 INF core.threads: Thread Done: AnaPayloadThread (140496720574144)
+14:57:26,599 INF core.threads: Running Thread: AnaCheckSoftwareThread (140496720574144)
+14:57:26,601 INF lifecycle: Module initialized: SourceSpoke
+14:57:26,601 INF core.threads: Thread Done: AnaSourceWatcher (140496728966848)
+14:57:26,601 DBG payload.dnf.payload: Checking the software selection...
+14:57:28,314 DBG payload.dnf.payload: The selection has been checked: ValidationReport(error_messages=[], warning_messages=[])
+14:57:28,314 INF core.threads: Thread Done: AnaCheckSoftwareThread (140496720574144)
+14:57:28,314 INF lifecycle: Module initialized: SoftwareSpoke
+14:57:28,314 INF lifecycle: All modules have been initialized.
+14:57:28,314 INF core.threads: Thread Done: AnaSoftwareWatcher (140496567531200)
+14:57:28,706 DBG simpleline: Scheduling screen SummaryHub
+14:57:28,706 DBG simpleline: New signal RenderScreenSignal enqueued with source ScreenScheduler
+14:57:28,707 DBG simpleline: Scheduling screen ProgressSpoke
+14:57:28,707 DBG simpleline: Starting main loop
+14:57:28,707 DBG simpleline: Processing screen ScreenData(SummaryHub,None,False)
+14:57:28,725 DBG simpleline: Input is required by ScreenData(SummaryHub,None,False) screen
+14:57:28,729 DBG simpleline: New signal CloseScreenSignal enqueued with source SummaryHub
+14:57:28,729 DBG simpleline: Closing screen ScreenData(SummaryHub,None,False) from SummaryHub
+14:57:28,729 DBG simpleline: New signal RenderScreenSignal enqueued with source ScreenScheduler
+14:57:28,730 DBG simpleline: Processing screen ScreenData(ProgressSpoke,None,False)
+14:57:28,734 DBG ui.tui.spokes.installation_progress: The installation has started.
+15:10:13,511 DBG ui.tui.spokes.installation_progress: The installation has finished.
+15:10:13,511 INF core.util: Reporting the IPMI event: 8
+15:10:13,512 DBG simpleline: New signal ScreenReadySignal enqueued with source ProgressSpoke
+15:10:13,515 DBG simpleline: Main loop ended. Running callback if set.
+15:10:13,515 INF core.util: Reporting the IPMI event: 9

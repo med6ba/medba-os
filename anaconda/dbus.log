@@ -1,0 +1,40 @@
+dbus-daemon[8]: SELinux support is enabled
+
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Boss' requested by ':1.0' (uid=0 pid=9251 comm="/usr/bin/python3 /usr/sbin/anaconda --kickstart /h" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Boss'
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Services' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Security' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Runtime' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Users' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Payloads' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Storage' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Localization' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Timezone' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Network' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Modules.Subscription' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activating service name='org.fedoraproject.Anaconda.Addons.Kdump' requested by ':1.1' (uid=0 pid=9271 comm="python3 -m pyanaconda.modules.boss" label="unconfined_u:system_r:install_t:s0-s0:c0.c1023")
+dbus-daemon[8]: Activated service 'org.fedoraproject.Anaconda.Addons.Kdump' failed: Process org.fedoraproject.Anaconda.Addons.Kdump exited with status 1
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Modules.Payloads'
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Modules.Network'
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Modules.Security'
+dbus-daemon[8]: Activated service 'org.fedoraproject.Anaconda.Modules.Subscription' failed: Process org.fedoraproject.Anaconda.Modules.Subscription exited with status 1
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Modules.Users'
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Modules.Services'
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Modules.Runtime'
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Modules.Storage'
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Modules.Timezone'
+dbus-daemon[8]: Successfully activated service 'org.fedoraproject.Anaconda.Modules.Localization'
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
+dbus-daemon[8]: Reloaded configuration
