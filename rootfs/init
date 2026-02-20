@@ -1,5 +1,20 @@
 #!/bin/sh
-mount -t proc none /proc
-mount -t sysfs none /sys
-mount -t devtmpfs devtmpfs /dev
-exec /bin/sh
+
+# 1. Mounts
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs devtmpfs /dev > /dev/null 2>&1
+
+# 2. Network - الضربة القاضية للـ Ping
+ifconfig lo 127.0.0.1 up
+ifconfig eth0 up
+# هاد الكومند كاتجيب IP و Gateway و DNS أوتوماتيكياً من Boxes/QEMU
+udhcpc -i eth0
+
+# 3. تأكيد الـ DNS (احتياط)
+mkdir -p /etc
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+echo "nameserver 1.1.1.1" >> /etc/resolv.conf
+
+# 4. دفع التحكم لـ BusyBox
+exec /sbin/init

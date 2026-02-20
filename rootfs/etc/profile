@@ -1,0 +1,15 @@
+# /etc/profile
+
+# 1. إعداد المسارات (ضروري بزاف)
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+
+# 2. الـ Prompt
+export PS1="\033[1;32mmedba-os:\w$ \033[0m"
+
+# 3. الـ Banner الخضر
+clear
+echo -e "\033[1;32m"
+echo "#######################################################"
+echo "#                WELCOME TO MEDBA-OS                  #"
+echo "#######################################################"
+echo -e "\033[0m"

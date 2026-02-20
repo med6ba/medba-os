@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Repo بـ HTTP باش ما يوقعش Error ديال Certificate
+REPO="http://distro.ibiblio.org/tinycorelinux/13.x/x86_64/tcz"
+
+if [ "$1" = "install" ]; then
+    echo -e "\033[1;32m[+] Downloading $2...\033[0m"
+    # غانجربو نتيليشارجيوه بـ wget العادية
+    wget "$REPO/$2.tcz" -O "/tmp/$2.tcz"
+    
+    if [ $? -eq 0 ]; then
+        echo -e "\033[1;32m[✅] $2 downloaded. Extracting...\033[0m"
+        # هنا غادي نفكوه بـ unsquashfs إلا كان عندك، أو نخدمو بـ Static binary
+        echo "Please wait..."
+    else
+        echo -e "\033[1;31m[❌] Connection error. Try to ping google.com first.\033[0m"
+    fi
+fi
