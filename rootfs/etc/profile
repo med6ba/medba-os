@@ -1,12 +1,12 @@
 # /etc/profile
 
-# 1. إعداد المسارات (ضروري بزاف)
+# 1. PATH setup
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 
-# 2. الـ Prompt
+# 2. Prompt
 export PS1="\033[1;32mmedba-os:\w$ \033[0m"
 
-# 3. الـ Banner الخضر
+# 3. Banner
 clear
 echo -e "\033[1;32m"
 echo "#######################################################"

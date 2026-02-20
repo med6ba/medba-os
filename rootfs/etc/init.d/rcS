@@ -3,15 +3,15 @@ mount -t proc proc /proc
 mount -t sysfs sysfs /sys
 mount -t devtmpfs devtmpfs /dev
 
-# 1. محاولة تحميل التعريفات (Drivers) إذا كانت modules
+# 1. Try loading network drivers if modules are available
 modprobe e1000
 modprobe virtio_net
 
-# 2. تأكتيفي أي كارتة لقاها (بزاف ديال المرات كتكون سميتها ماشي eth0)
+# 2. Bring up first common interface name
 ifconfig eth0 up || ifconfig enp0s3 up
 
-# 3. طلب IP أوتوماتيكيا (هادي هي اللي غاتسرح الـ Ping)
+# 3. Request IP via DHCP
 udhcpc -i eth0 || udhcpc -i enp0s3
 
-# 4. تأكيد الـ DNS
+# 4. DNS
 echo "nameserver 8.8.8.8" > /etc/resolv.conf

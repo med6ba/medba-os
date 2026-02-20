@@ -1,62 +1,67 @@
-# 🚀 Medba OS (v1.0)
+# Medba OS
 
-**Medba OS** is a lightweight, custom Linux distribution built entirely from scratch. This project demonstrates the core mechanics of the Linux kernel, the boot process, and how a minimal RootFS interacts with the system to provide a functional shell.
+Medba OS is a lightweight custom Linux distribution built from scratch for learning and experimentation.  
+It demonstrates the full path from kernel and root filesystem to a bootable ISO image.
 
-![Status](https://img.shields.io/badge/Status-Live%20&%20Bootable-brightgreen)
+![Status](https://img.shields.io/badge/Status-Bootable-brightgreen)
 ![Kernel](https://img.shields.io/badge/Kernel-6.19.0-blue)
-![Architecture](https://img.shields.io/badge/Arch-x86__64-orange)
+![Architecture](https://img.shields.io/badge/Architecture-x86__64-orange)
 
----
+## Highlights
 
-## 🛠️ Features
-- **Custom Kernel Build:** Optimized Linux kernel configuration based on version 6.19.0.
-- **BusyBox Powered:** Provides a complete suite of standard UNIX utilities in a single binary.
-- **Handcrafted Init Script:** A custom boot script managing essential mounts (proc, sys, dev) and shell execution.
-- **GRUB Bootloader:** Fully configured for reliable ISO booting.
+- Custom Linux kernel integration (`bzImage` + GRUB boot flow)
+- Minimal BusyBox-based userspace
+- Handcrafted init sequence (`rootfs/init`)
+- ISO image generation for VM testing (QEMU/Boxes)
 
----
+## Prerequisites
 
-## 📦 Prerequisites
+Install the required host packages for your distribution:
 
-To run or rebuild Medba OS, you need QEMU and xorriso installed on your host system. Use the command for your distribution:
+| Distribution | Install Command |
+| --- | --- |
+| ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white) ![Debian](https://img.shields.io/badge/Debian-A81D33?logo=debian&logoColor=white) | `sudo apt install qemu-system-x86 xorriso mtools grub-pc-bin` |
+| ![Fedora](https://img.shields.io/badge/Fedora-51A2DA?logo=fedora&logoColor=white) | `sudo dnf install qemu-system-x86 xorriso mtools grub2-pc-modules grub2-tools` |
+| ![Arch Linux](https://img.shields.io/badge/Arch-1793D1?logo=arch-linux&logoColor=white) | `sudo pacman -S qemu-desktop xorriso mtools grub` |
 
-#### Ubuntu / Debian
-sudo apt install qemu-system-x86 xorriso mtools grub-pc-bin
+## Quick Start
 
-#### Fedora
-sudo dnf install qemu-system-x86 xorriso mtools grub2-pc-modules grub2-tools
+Run the prebuilt ISO with QEMU:
 
-#### Arch Linux
-sudo pacman -S qemu-desktop xorriso mtools grub
-
----
-
-## 🚀 How to Run
-
-You don't need to install the OS. Just execute the pre-built ISO using QEMU:
-
+```bash
 qemu-system-x86_64 -cdrom MedbaOS.iso -m 512M
+```
 
----
+## Rebuild
 
-## 📂 Project Structure
-- kernel_src/: Full Linux kernel source code.
-- rootfs/: The root filesystem containing the init script, bin/ (BusyBox), and system mount points.
-- iso/: The staging area for the bootable image.
-- MedbaOS.iso: The final bootable ISO file.
+Use the build script:
 
----
+```bash
+./build.sh
+```
 
-## 🛠️ How to Rebuild
-If you modify the rootfs, update the ISO as follows:
+Or rebuild manually:
 
-1. Pack the Initrd:
+```bash
 cd rootfs
 find . | cpio -o -H newc | gzip > ../iso/boot/initrd.img
-
-2. Generate the ISO:
 cd ..
 grub2-mkrescue -o MedbaOS.iso iso/
+```
 
----
-*Disclaimer: This is a minimal OS for educational purposes.*
+## Project Layout
+
+```text
+.
+├── build.sh
+├── iso/
+├── kernel_src/
+├── rootfs/
+├── bzImage
+└── MedbaOS.iso
+```
+
+## Notes
+
+- This is a minimal educational operating system project.
+- Inspired by: [YouTube reference](https://youtu.be/CvZ01fWkAJE)
