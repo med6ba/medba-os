@@ -6,8 +6,8 @@ It demonstrates the full path from kernel and root filesystem to a bootable ISO 
 ![Status](https://img.shields.io/badge/Status-Bootable-brightgreen)
 ![Kernel](https://img.shields.io/badge/Kernel-6.19.0-blue)
 ![Architecture](https://img.shields.io/badge/Architecture-x86__64-orange)
-![GitHub repo size](https://img.shields.io/github/repo-size/med6ba/medba-downloader)
-![GitHub license](https://img.shields.io/github/license/med6ba/medba-downloader)
+![GitHub repo size](https://img.shields.io/github/repo-size/med6ba/medba-os)
+![GitHub license](https://img.shields.io/github/license/med6ba/medba-os)
 
 ## Highlights
 
