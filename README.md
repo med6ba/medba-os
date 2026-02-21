@@ -9,6 +9,10 @@ It demonstrates the full path from kernel and root filesystem to a bootable ISO 
 ![GitHub repo size](https://img.shields.io/github/repo-size/med6ba/medba-os)
 ![GitHub license](https://img.shields.io/github/license/med6ba/medba-os)
 
+## Qemu Demo
+
+![Qemu Demo](assets/qemu-screenshot.png)
+
 ## Highlights
 
 - Custom Linux kernel integration (`bzImage` + GRUB boot flow)
