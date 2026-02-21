@@ -6,6 +6,8 @@ It demonstrates the full path from kernel and root filesystem to a bootable ISO 
 ![Status](https://img.shields.io/badge/Status-Bootable-brightgreen)
 ![Kernel](https://img.shields.io/badge/Kernel-6.19.0-blue)
 ![Architecture](https://img.shields.io/badge/Architecture-x86__64-orange)
+![GitHub repo size](https://img.shields.io/github/repo-size/med6ba/medba-downloader)
+![GitHub license](https://img.shields.io/github/license/med6ba/medba-downloader)
 
 ## Highlights
 
@@ -65,3 +67,6 @@ grub2-mkrescue -o MedbaOS.iso iso/
 
 - This is a minimal educational operating system project.
 - Inspired by: [YouTube reference](https://youtu.be/CvZ01fWkAJE)
+- Built and tested on: ![Fedora](https://img.shields.io/badge/Fedora-294172?logo=fedora&logoColor=white)
+
+![Stars](https://img.shields.io/github/stars/med6ba/medba-downloader?logo=github) ![Forks](https://img.shields.io/github/forks/med6ba/medba-downloader?logo=github)
